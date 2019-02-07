@@ -21,7 +21,7 @@ const gif = require("gif-search");
 const client = new Discord.Client({disableEveryone: true});
 
 const prefix = "so";
-var adminprefix = '*so'
+var adminprefix = '*vip'
 
 
 client.on('message', async msg =>{
