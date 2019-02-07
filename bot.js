@@ -472,5 +472,49 @@ collector7.on('collect', r => {
 });
 
 
+const adminprefix = "sovip";
+const devs = ['540222323748372510'];
+client.on('message', message => {
+  var argresult = message.content.split(` `).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+    
+if (message.content.startsWith(adminprefix + 'setgame')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
+} else 
+  if (message.content.startsWith(adminprefix + 'setname')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+} else
+  if (message.content.startsWith(adminprefix + 'setavatar')) {
+client.user.setAvatar(argresult);
+  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+      } else     
+if (message.content.startsWith(adminprefix + 'setT')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/idk");
+    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
+}
+
+});
+
+lient.on('message', message => {
+    if (message.content === 'sohelp') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**أوامر الميوزك...**')
+        .setDescription('**برفكس البوت ( so )**')
+        .addField('soplay', 'لتشغيل اغنية')
+        .addField('sojoin', 'دخول رومك الصوتي')
+        .addField('sodisconnect', 'الخروج من رومك الصوتي')
+        .addField('soskip', 'تخطي الأغنية')
+        .addField('sopause', 'ايقاف الاغنية مؤقتا')
+        .addField('soresume', 'تكملة الاغنية')
+        .addField('soqueue', 'اظهار قائمة التشغيل')
+        .addField('soquran', 'لشتغيل القرأن الكريم ')
+        .addField('sonp', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .setFooter('steroman')
+      message.channel.send(helpEmbed);
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
