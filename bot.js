@@ -21,8 +21,6 @@ const gif = require("gif-search");
 const client = new Discord.Client({disableEveryone: true});
 
 const prefix = "so";
-var adminprefix = '*vip'
-
 
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
@@ -472,7 +470,7 @@ collector7.on('collect', r => {
 });
 
 
-const adminprefix = "sovip";
+const adminprefix = "*sovip";
 const devs = ['540222323748372510'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
